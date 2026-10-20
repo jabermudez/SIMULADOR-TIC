@@ -702,8 +702,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 1: NEW ITEM MENU (FOLDER / FILE) */}
       {isNewItemModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200 animate-in fade-in slide-in-from-bottom duration-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             {!isFolderCreateView && !isFileCreateView ? (
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -800,21 +800,24 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
                   </p>
                 </div>
 
-                <div className="mt-5 flex items-center justify-end gap-2">
+                <div className="mt-5 flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100">
                   <button
+                    type="button"
                     onClick={() => {
                       setIsFolderCreateView(false);
                       setIsNewItemModalOpen(false);
                     }}
-                    className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                    className="flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 rounded-xl transition text-center"
                   >
                     Cancelar
                   </button>
                   <button
+                    type="button"
                     onClick={handleCreateFolder}
-                    className="px-4 py-2 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-xs"
+                    className="flex-1 sm:flex-none px-5 py-2.5 text-xs font-bold bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white rounded-xl shadow-md transition text-center flex items-center justify-center gap-1.5"
                   >
-                    Crear Carpeta
+                    <Check className="w-4 h-4" />
+                    <span>Crear Carpeta</span>
                   </button>
                 </div>
               </div>
@@ -855,21 +858,24 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
                   </p>
                 </div>
 
-                <div className="mt-5 flex items-center justify-end gap-2">
+                <div className="mt-5 flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100">
                   <button
+                    type="button"
                     onClick={() => {
                       setIsFileCreateView(false);
                       setIsNewItemModalOpen(false);
                     }}
-                    className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                    className="flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 rounded-xl transition text-center"
                   >
                     Cancelar
                   </button>
                   <button
+                    type="button"
                     onClick={handleCreateFile}
-                    className="px-4 py-2 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-xs"
+                    className="flex-1 sm:flex-none px-5 py-2.5 text-xs font-bold bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white rounded-xl shadow-md transition text-center flex items-center justify-center gap-1.5"
                   >
-                    Crear y Guardar
+                    <Check className="w-4 h-4" />
+                    <span>Crear y Guardar</span>
                   </button>
                 </div>
               </div>
@@ -880,8 +886,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 2: ITEM CONTEXT MENU (Touch Sheet / Dialog) */}
       {selectedItemForMenu && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-sm rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2.5 min-w-0">
                 {getFileIcon(selectedItemForMenu.type, 'w-6 h-6')}
@@ -1010,8 +1016,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 3: PREVIEW ITEM */}
       {previewItem && (
-        <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-lg rounded-3xl p-5 shadow-2xl border border-slate-200 flex flex-col max-h-[85vh]">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-lg rounded-3xl p-5 shadow-2xl border border-slate-200 flex flex-col my-auto max-h-[88vh] overflow-hidden">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2.5 min-w-0">
                 {getFileIcon(previewItem.type, 'w-6 h-6')}
@@ -1056,8 +1062,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 4: SHARE PERMISSIONS (SIMULATES GOOGLE DRIVE SHARE DIALOG) */}
       {shareItem && (
-        <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-md rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-md rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <Share2 className="w-5 h-5 text-teal-600" />
@@ -1228,8 +1234,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 5: RENAME ITEM */}
       {renameItem && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <h4 className="font-bold text-slate-800 text-sm pb-2 border-b border-slate-100">
               Cambiar nombre
             </h4>
@@ -1245,16 +1251,18 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
                 }}
               />
             </div>
-            <div className="mt-4 flex items-center justify-end gap-2">
+            <div className="mt-5 flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100">
               <button
+                type="button"
                 onClick={() => setRenameItem(null)}
-                className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                className="flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition text-center"
               >
                 Cancelar
               </button>
               <button
+                type="button"
                 onClick={handleRenameSubmit}
-                className="px-4 py-2 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl"
+                className="flex-1 sm:flex-none px-5 py-2.5 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-md transition text-center"
               >
                 Guardar
               </button>
@@ -1265,8 +1273,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 6: MOVE ITEM TO FOLDER */}
       {moveItem && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <h4 className="font-bold text-slate-800 text-sm pb-2 border-b border-slate-100 flex items-center gap-2">
               <CornerDownRight className="w-4 h-4 text-teal-600" />
               <span>Mover "{moveItem.name}"</span>
@@ -1305,16 +1313,18 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
                 ))}
             </div>
 
-            <div className="mt-4 flex items-center justify-end gap-2">
+            <div className="mt-5 flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100">
               <button
+                type="button"
                 onClick={() => setMoveItem(null)}
-                className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                className="flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition text-center"
               >
                 Cancelar
               </button>
               <button
+                type="button"
                 onClick={handleMoveSubmit}
-                className="px-4 py-2 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl"
+                className="flex-1 sm:flex-none px-5 py-2.5 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-md transition text-center"
               >
                 Mover aquí
               </button>
@@ -1325,8 +1335,8 @@ export const CloudDriveSimulator: React.FC<CloudDriveSimulatorProps> = ({
 
       {/* MODAL 7: STORAGE BREAKDOWN */}
       {showStorageModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white w-full max-w-md rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200">
+        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white w-full max-w-md rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200 my-auto max-h-[88vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <HardDrive className="w-5 h-5 text-teal-600" />
