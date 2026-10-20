@@ -1,0 +1,6 @@
+{
+  "name": "Laboratorio Interactivo de Herramientas TIC",
+  "description": "Plataforma educativa y simulador interactivo de gestión de archivos en la nube, ofimática y competencias digitales, optimizado para celulares.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
